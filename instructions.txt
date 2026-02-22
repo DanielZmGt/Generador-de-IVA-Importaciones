@@ -1,0 +1,93 @@
+ INSTRUCTIVO PARA CREAR ARCHIVO “IVA IMPORTACIONES”
+Fuente: Archivos Data Stage (Glosa)
+🎯 Objetivo
+Generar el archivo final “IVA Importaciones” en Excel, integrando información de los archivos de glosa: 557, 551, 505 y 701.
+1️⃣ Archivos que se utilizan
+Los archivos principales son:
+
+    557 → IVA realmente pagado en aduanas por fracción.
+    551 → Valor en aduana, valor comercial por fracción, clave de pedimento y descripción.
+    505 → Proveedor, Tax ID y país (para DIOT).
+    701 → Pedimentos rectificados en el periodo.
+
+2️⃣ Procedimiento paso a paso
+🔹 PASO 1 – Abrir archivo 557
+
+    Abrir en Excel.
+    Importar como archivo delimitado por “|”.
+    Elegir “No convertir" siempre (mantener formatos originales).
+    Aplicar filtros:
+        Columna F → filtrar por valor 3
+        Columna G → filtrar por valor 0
+    Crear una columna nueva llamada:
+    Pedimento_Key
+    Concatenar:
+
+    Columna B (Pedimento)
+    +
+    Columna D (Fracción)
+    +
+    Columna E (Secuencia de fracción)
+
+    👉 Formato texto, sin espacios.
+
+Este archivo será la base principal del libro.
+🔹 PASO 2 – Abrir archivo 551
+
+    Abrir delimitado por “|”.
+    Elegir “No convertir" siempre
+    Crear la misma columna:
+    Pedimento_Key = B + D + E
+    Desde el archivo 551 jalar hacia el archivo 557 las siguientes columnas (con BUSCARX o cruce por Pedimento_Key):
+        Columna I → Valor en aduana
+        Columna J → Valor comercial por fracción
+        Columna G → Descripción de la fracción
+
+El cruce debe hacerse usando Pedimento_Key.
+🔹 PASO 3 – Archivo 505
+
+    Abrir delimitado por “|”.
+    Elegir “No convertir siempre”.
+    Aquí el cruce se hace únicamente con el número de pedimento (no por fracción).
+    Jalar al libro principal:
+        Proveedor
+        Tax ID
+        País
+
+Cruce por:
+
+Número de pedimento (columna B)
+
+🔹 PASO 4 – Archivo 701 (Pedimentos Rectificados)
+
+    Abrir delimitado por “|”.
+    No convertir formatos.
+    Buscar los pedimentos que están en la columna B (pedimento) del libro principal.
+    Revisar en archivo 701:
+        Columna B (pedimento)
+        Columna F (pedimento anterior)
+
+Si alguno coincide con los pedimentos del libro principal:
+👉 Marcar en rojo (parte inferior o columna auxiliar) todas las líneas correspondientes a esos pedimentos encontrados en el archivo 701.
+Estos pedimentos deben quedar identificados para revisión posterior y determinar si se eliminan del cálculo final.
+3️⃣ Resultado Final Esperado
+El archivo “IVA Importaciones” debe contener:
+
+    Número de pedimento
+    Fracción
+    Secuencia
+    IVA pagado (del 557)
+    Valor en aduana (551)
+    Valor comercial (551)
+    Descripción fracción (551)
+    Proveedor (505)
+    Tax ID (505)
+    País (505)
+    Identificación de pedimentos rectificados (701)
+
+4️⃣ Reglas importantes
+✔ Todos los cruces deben hacerse con campos en formato texto.
+✔ No perder ceros a la izquierda en pedimentos.
+✔ La llave principal siempre es:
+Pedimento + Fracción + Secuencia
+✔ El archivo 701 no modifica directamente datos, solo marca pedimentos para revisión.

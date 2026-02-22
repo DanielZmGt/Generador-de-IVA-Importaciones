@@ -1,0 +1,21 @@
+# Ignore data files
+*.asc
+*.xlsx
+*.csv
+
+# Ignore images and icons
+*.jpg
+*.png
+*.ico
+
+# Ignore executables and build artifacts
+*.exe
+*.spec
+dist/
+build/
+__pycache__/
+
+# Ignore virtual environments
+.venv/
+env/
+venv/
