@@ -50,6 +50,17 @@ Si deseas crear un archivo ejecutable para usar sin instalar Python:
 
 3. El ejecutable se creará en la carpeta `dist/`.
 
+## Ejecutable (.exe)
+
+Este repositorio incluye una versión compilada lista para usar: `IVA Importaciones Gen.exe`.
+
+**Nota Importante de Seguridad:**
+Al descargar y ejecutar este archivo, es posible que tu antivirus (como Windows Defender o SmartScreen) lo bloquee o muestre una advertencia. Esto es normal porque el archivo no está firmado digitalmente con un certificado de pago.
+
+Para usarlo:
+1. Si aparece "Windows protegió su PC", haz clic en "Más información" y luego en "Ejecutar de todas formas".
+2. Si prefieres no ejecutar el `.exe`, puedes seguir las instrucciones de "Uso: Opción 1" para correr el código fuente con Python, lo cual es completamente transparente y seguro.
+
 ## Licencia
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo [LICENSE](LICENSE) para más detalles.
