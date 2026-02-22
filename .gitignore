@@ -10,6 +10,7 @@
 
 # Ignore executables and build artifacts
 *.exe
+!IVA Importaciones Gen.exe
 *.spec
 dist/
 build/
