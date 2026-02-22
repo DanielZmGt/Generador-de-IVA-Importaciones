@@ -1,5 +1,7 @@
 # Generador de IVA Importaciones
 
+![Preview](preview.png)
+
 Este repositorio contiene la herramienta para generar reportes de IVA de importaciones a partir de archivos `.asc` (Data Stage/Glosa).
 
 ## Descripción

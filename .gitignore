@@ -6,6 +6,7 @@
 # Ignore images and icons
 *.jpg
 *.png
+!preview.png
 *.ico
 
 # Ignore executables and build artifacts
